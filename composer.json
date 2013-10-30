@@ -1,0 +1,20 @@
+{
+    "name": "leepownall/vanilla",
+    "description": "Basic exampple contact form.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lee Pownall",
+            "email": "leepownall@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    },
+    "autoload": {
+        "psr-0": {
+            "Vanilla": "src/"
+        }
+    }
+}
