@@ -64,13 +64,19 @@ input[type=text]:focus, input[type=email]:focus, textarea:focus {
 	border-color: #a0a0a0;
 }
 
+textarea {
+	font-family: inherit;
+	font-size: 0.875em;
+}
+
+
 .asterix {
 	color: #ff7a56;
 }
 
-.error {
+.errors li {
 	color: #ff7a56;
 	font-size: 0.75em;
-	display: inline-block;
-	margin-bottom: 0.625em;
+	display: block;
+	margin: 0.625em 0;
 }
