@@ -47,7 +47,7 @@ class Validation
     public function min($min = "10")
     {
         if(strlen($this->data) < $min) {
-            $this->errors[] = "The field needs to be longer than {$min} characters in length.";
+            $this->errors[] = "The message field needs to be longer than {$min} characters in length.";
             return false;
         }
 
@@ -61,7 +61,7 @@ class Validation
 
     public function passes()
     {
-        if($this->errors() === 0) {
+        if(count($this->errors()) == 0) {
             return true;
         }
 
