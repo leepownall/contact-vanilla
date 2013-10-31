@@ -74,6 +74,13 @@ textarea {
 	color: #ff7a56;
 }
 
+.error-inline {
+	color: #ff7a56;
+	font-size: 0.75em;
+	display: block;
+	margin-top: 0.625em;
+}
+
 .errors li {
 	color: #ff7a56;
 	font-size: 0.75em;
