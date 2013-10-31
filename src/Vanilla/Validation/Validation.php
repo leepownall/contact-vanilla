@@ -5,6 +5,7 @@ class Validation
     protected $errors = [];
     protected $rules = [];
     protected $data;
+    protected $field;
 
     public function data($data)
     {
@@ -13,22 +14,25 @@ class Validation
         return $this;
     }
 
+    public function field($field)
+    {
+        $this->field = $field;
+
+        return $this;
+    }
+
     public function required()
     {
         if(empty($this->data) OR null) {
-            $this->errors[] = "All fields are required.";
-            throw new \Exception();
-            return false;
+            $this->errors[$this->field][] = "The " . ucfirst($this->field) . " field is required.";
         }
-
         return $this;
     }
 
     public function email()
     {
         if( ! filter_var($this->data, FILTER_VALIDATE_EMAIL)) {
-            $this->errors[] = "The email field needs to be a valid email format.";
-            return false;
+            $this->errors[$this->field][] = "The " . ucfirst($this->field) . " field needs to be a valid email format.";
         }
 
         return $this;
@@ -37,8 +41,7 @@ class Validation
     public function alpha()
     {
         if( ! preg_match('/^([-a-z_-\s])+$/i', $this->data)) {
-            $this->errors[] = "Name needs to be just alpha characters, no numeric.";
-            return false;
+            $this->errors[$this->field][] = ucfirst($this->field) . " needs to be just alpha characters, no numeric.";
         }
 
         return $this;
@@ -47,8 +50,7 @@ class Validation
     public function min($min = "10")
     {
         if(strlen($this->data) < $min) {
-            $this->errors[] = "The message field needs to be longer than {$min} characters in length.";
-            return false;
+            $this->errors[$this->field][] = "The " . ucfirst($this->field) . " field needs to be longer than {$min} characters in length.";
         }
 
         return $this;
@@ -57,6 +59,17 @@ class Validation
     public function errors()
     {
         return $this->errors;
+    }
+
+    public function first($field)
+    {
+        if(count($this->errors()) > 0) {
+            if(isset($this->errors[$field])) {
+                return $this->errors[$field][0];
+            }
+        }
+        
+        return false;
     }
 
     public function passes()
