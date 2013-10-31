@@ -9,9 +9,6 @@
         <!-- Stylesheets -->
         <link rel="stylesheet" type="text/css" href="public/css/reset.css">
         <link rel="stylesheet" type="text/css" href="public/css/stylesheet.css">
-
-        <!-- Font Awesome -->
-        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
