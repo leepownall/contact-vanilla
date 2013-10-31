@@ -15,6 +15,12 @@
     </head>
     <body>
         <div class="container">
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.php" class="selected">Add Message</a></li>
+                    <li><a href="messages.php">All Messages</a></li>
+                </ul>
+            </nav>
             <?php 
 
                 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -29,24 +35,24 @@
                     $validation->field('message')->data($message)->required()->min();
 
                     if($validation->passes()) {
-                        $database = new Vanilla\Database\Database;
-                        $database->insert($name, $email, $message);
+                        $db = new Vanilla\Database\Message;
+                        $db->insert($name, $email, $message);
                         header('Location: messages.php');
                     } else { ?>
                         <form action="" method="POST" novalidate>
                             <ul class="form cf">
                                 <li>
-                                    <label for="title">Name <span class="asterix">&#42;</span></label>
+                                    <label for="title">Name: <span class="asterix">&#42;</span></label>
                                     <input type="text" name="name" value="<?php echo $name; ?>">
                                     <?php echo "<span class='error-inline'>" . $validation->first('name') . "</span>"; ?>
                                 </li>
                                 <li>
-                                    <label for="email">Email <span class="asterix">&#42;</span></label>
+                                    <label for="email">Email: <span class="asterix">&#42;</span></label>
                                     <input type="email" name="email" value="<?php echo $email; ?>">
                                     <?php echo "<span class='error-inline'>" . $validation->first('email') . "</span>"; ?>
                                 </li>
                                 <li>
-                                    <label for="message">Your Message <span class="asterix">&#42;</span></label>
+                                    <label for="message">Your Message: <span class="asterix">&#42;</span></label>
                                     <textarea name="message" cols="30" rows="10"><?php echo $message; ?></textarea>
                                     <?php echo "<span class='error-inline'>" . $validation->first('message') . "</span>"; ?>
                                 </li>
@@ -61,15 +67,15 @@
             <form action="" method="POST" novalidate>
                 <ul class="form cf">
                     <li>
-                        <label for="title">Name <span class="asterix">&#42;</span></label>
+                        <label for="title">Name: <span class="asterix">&#42;</span></label>
                         <input type="text" name="name">
                     </li>
                     <li>
-                        <label for="email">Email <span class="asterix">&#42;</span></label>
+                        <label for="email">Email: <span class="asterix">&#42;</span></label>
                         <input type="email" name="email">
                     </li>
                     <li>
-                        <label for="message">Your Message <span class="asterix">&#42;</span></label>
+                        <label for="message">Your Message: <span class="asterix">&#42;</span></label>
                         <textarea name="message" cols="30" rows="10"></textarea>
                     </li>
                     <li>
