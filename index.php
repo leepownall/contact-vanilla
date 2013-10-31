@@ -1,4 +1,4 @@
-<?php require __DIR__.'/vendor/autoload.php'; ?>
+<?php require __DIR__.'/vendor/autoload.php'; ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,9 +24,9 @@
             <?php 
 
                 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $name = $_POST['name'];
-                    $email = $_POST['email'];
-                    $message = $_POST['message'];
+                    $name = trim(htmlspecialchars($_POST['name']));
+                    $email = trim(htmlspecialchars($_POST['email']));
+                    $message = trim(htmlspecialchars($_POST['message']));
 
                     $validation = new Vanilla\Validation\Validation;
 
@@ -38,6 +38,7 @@
                         $db = new Vanilla\Database\Message;
                         $db->insert($name, $email, $message);
                         header('Location: messages.php');
+                        ob_flush();
                     } else { ?>
                         <form action="" method="POST" novalidate>
                             <ul class="form cf">
