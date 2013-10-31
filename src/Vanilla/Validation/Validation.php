@@ -2,8 +2,8 @@
 
 class Validation
 {
-    protected $errors = [];
-    protected $rules = [];
+    protected $errors = array();
+    protected $rules = array();
     protected $data;
     protected $field;
 
