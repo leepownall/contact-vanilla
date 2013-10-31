@@ -17,19 +17,25 @@
         <div class="container">
             <?php 
 
-                $validation = new Vanilla\Validation\Validation;
+                if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $name = $_POST['name'];
+                    $email = $_POST['email'];
+                    $message = $_POST['message'];
 
-                $name = $_POST['name'];
-                $email = $_POST['email'];
-                $message = $_POST['message'];
+                    $validation = new Vanilla\Validation\Validation;
 
-                try {
-                    $validation->data($name)->required()->alpha();
-                    $validation->data($email)->required()->email();
-                    $validation->data($message)->required()->min();
-                } catch(\Exception $e) {}
+                    try {
+                        $validation->data($name)->required()->alpha();
+                        $validation->data($email)->required()->email();
+                        $validation->data($message)->required()->min();
 
-                
+                        if($validation->passes()) {
+                            $database = new Vanilla\Database\Database;
+                            $database->insert($name, $email, $message);
+                            header('Location: messages.php');
+                        }
+                    } catch(\Exception $e) {}
+                }
             ?>
             <form action="" method="POST" novalidate>
                 <ul class="form cf">
@@ -51,12 +57,14 @@
                 </ul>
             </form>
             <?php 
-                if($validation->fails()) {
-                    echo "<ul class='errors'>";
-                    foreach($validation->errors() as $error) {
-                        echo "<li>{$error}</li>";
+                if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    if($validation->fails()) {
+                        echo "<ul class='errors'>";
+                        foreach($validation->errors() as $error) {
+                            echo "<li>{$error}</li>";
+                        }
+                        echo "</ul>";
                     }
-                    echo "</ul>";
                 }
             ?>
         </div>
