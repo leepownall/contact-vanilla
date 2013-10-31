@@ -24,85 +24,91 @@ a { text-decoration: none; }
 	max-width: 31.25em; /* 500px */
 }
 
+/* Navigation */
+
 .navigation {
 	border-bottom: 2px solid #d3d3d3;
 	margin-bottom: 0.9375em;
 	padding: 0.9375em 0;
 }
 
-.navigation ul {
-	display: block;
-	padding: 0.9375em 0;
-}
+	.navigation ul {
+		display: block;
+		padding: 0.9375em 0;
+	}
 
-.navigation li {
-	display: inline-block;
-	margin-right: 0.625em;
-}
+		.navigation li {
+			display: inline-block;
+			margin-right: 0.625em;
+		}
 
-.navigation li a {
-	color: #000;
-	font-size: 0.75em;
-	font-weight: 600;
-	padding: 0.9375em;
-	text-transform: uppercase;
-}
+			.navigation li a {
+				color: #000;
+				font-size: 0.75em;
+				font-weight: 600;
+				padding: 0.9375em;
+				text-transform: uppercase;
+			}
 
-.navigation li a:hover, .navigation .selected {
-	background-color: #56a2ff;
-	border-radius: 3px;
-	color: #fff;
-}
+			.navigation li a:hover, .navigation .selected {
+				background-color: #56a2ff;
+				border-radius: 3px;
+				color: #fff;
+			}
+
+/* Message Form */
 
 .form li {
 	margin-bottom: 1.25em;
 }
 
-.form li label {
-	color: #4d4d4d;
-	display: block;
-	font-size: 0.875em;
-	margin-bottom: 0.625em;
-}
+	.form li label {
+		color: #4d4d4d;
+		display: block;
+		font-size: 0.875em;
+		margin-bottom: 0.625em;
+	}
 
-input[type=text], input[type=email], textarea {
-	border: 1px solid #d3d3d3;
-	border-radius: 3px;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	padding: 0.625em;
-	width: 100%;
-	outline: none;
-}
+	.form .asterix {
+		color: #ff7a56;
+	}
 
-input[type=submit] {
-	border: 0;
-	border-radius: 3px;
-	background-color: #ec4f4f;
-	color: #fff;
-	font-size: 0.75em;
-	font-weight: 600;
-	float: right;
-	padding: 0.9375em;
-	text-transform: uppercase;
-}
+	.form input[type=text], .form input[type=email], textarea {
+		border: 1px solid #d3d3d3;
+		border-radius: 3px;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		padding: 0.625em;
+		width: 100%;
+		outline: none;
+	}
 
-input[type=submit]:hover {
-	background-color: #e93030;
-}
+	.form textarea {
+		font-family: inherit;
+		font-size: 0.875em;
+	}
 
-input[type=text]:focus, input[type=email]:focus, textarea:focus {
-	border-color: #a0a0a0;
-}
+		.form input[type=text]:focus, .form input[type=email]:focus, .form textarea:focus {
+			border-color: #a0a0a0;
+		}
 
-textarea {
-	font-family: inherit;
-	font-size: 0.875em;
-}
+	.form input[type=submit] {
+		border: 0;
+		border-radius: 3px;
+		background-color: #ec4f4f;
+		color: #fff;
+		font-size: 0.75em;
+		font-weight: 600;
+		float: right;
+		padding: 0.9375em;
+		text-transform: uppercase;
+	}
 
-.asterix {
-	color: #ff7a56;
-}
+		.form input[type=submit]:hover {
+			background-color: #e93030;
+		}
+
+/* Error */
 
 .error-inline {
 	color: #ff7a56;
@@ -111,12 +117,7 @@ textarea {
 	margin-top: 0.625em;
 }
 
-.errors li {
-	color: #ff7a56;
-	font-size: 0.75em;
-	display: block;
-	margin: 0.625em 0;
-}
+/* Message */
 
 .message {
 	font-size: 0.875em;
@@ -125,28 +126,28 @@ textarea {
 	margin-bottom: 1.25em;
 }
 
-.message-row {
-	display: block;
-	margin-bottom: 1.25em;
-}
+	.message-row {
+		display: block;
+		margin-bottom: 1.25em;
+	}
 
-.message-label {
-	color: #4d4d4d;
-	display: inline-block;
-	text-align: right;
-	margin-right: 0.9375em;
-	width: 5.3125em;
-	vertical-align: top;
-}
+		.message-label {
+			color: #4d4d4d;
+			display: inline-block;
+			text-align: right;
+			margin-right: 0.9375em;
+			width: 5.3125em;
+			vertical-align: top;
+		}
 
-.actual-message {
-	display: inline-block;
-	width: 400px;
-}
+	.actual-message {
+		display: inline-block;
+		width: 400px;
+	}
 
-.no-messages {
-	font-size: 0.875em;
-}
+	.no-messages {
+		font-size: 0.875em;
+	}
 
 @media (max-width: 31.25em) {
 	.container {
