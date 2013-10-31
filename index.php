@@ -21,9 +21,9 @@
             <?php 
 
                 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $name = trim(htmlspecialchars($_POST['name']));
-                    $email = trim(htmlspecialchars($_POST['email']));
-                    $message = trim(htmlspecialchars($_POST['message']));
+                    $name = trim($_POST['name']);
+                    $email = trim($_POST['email']);
+                    $message = trim($_POST['message']);
 
                     $validation = new Vanilla\Validation\Validation;
 
@@ -42,17 +42,17 @@
                                 <li>
                                     <label for="title">Name: <span class="asterix">&#42;</span></label>
                                     <input type="text" name="name" value="<?php echo $name; ?>">
-                                    <?php echo "<span class='error-inline'>" . $validation->first('name') . "</span>"; ?>
+                                    <?php echo "<span class='error-inline'>" . htmlspecialchars($validation->first('name')) . "</span>"; ?>
                                 </li>
                                 <li>
                                     <label for="email">Email: <span class="asterix">&#42;</span></label>
                                     <input type="email" name="email" value="<?php echo $email; ?>">
-                                    <?php echo "<span class='error-inline'>" . $validation->first('email') . "</span>"; ?>
+                                    <?php echo "<span class='error-inline'>" . htmlspecialchars($validation->first('email')) . "</span>"; ?>
                                 </li>
                                 <li>
                                     <label for="message">Your Message: <span class="asterix">&#42;</span></label>
                                     <textarea name="message" cols="30" rows="10"><?php echo $message; ?></textarea>
-                                    <?php echo "<span class='error-inline'>" . $validation->first('message') . "</span>"; ?>
+                                    <?php echo "<span class='error-inline'>" . htmlspecialchars($validation->first('message')) . "</span>"; ?>
                                 </li>
                                 <li>
                                     <input type="submit" value="Send Message">
