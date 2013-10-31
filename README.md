@@ -2,6 +2,8 @@
 
 Simple contact form that takes name, email and a message and then inserts into the database. All messages are viewable.
 
+[Live Demo](http://leepownall.com/contact)
+
 Validation rules in place are:
 
 * All fields must be present.
