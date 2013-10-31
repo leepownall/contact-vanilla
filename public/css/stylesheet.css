@@ -80,3 +80,15 @@ textarea {
 	display: block;
 	margin: 0.625em 0;
 }
+
+.message {
+	border-bottom: 2px solid #eee;
+	padding-bottom: 0.9375em;
+	margin-bottom: 0.9375em;
+}
+
+.message header {
+	border-bottom: 1px solid #eee;
+	padding-bottom: 0.9375em;
+	margin-bottom: 0.9375em;
+}
