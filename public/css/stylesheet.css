@@ -135,15 +135,21 @@ textarea {
 	display: inline-block;
 	text-align: right;
 	margin-right: 0.9375em;
-	width: 5em;
+	width: 5.3125em;
 	vertical-align: top;
 }
 
 .actual-message {
 	display: inline-block;
-	width: 410px;
+	width: 400px;
 }
 
 .no-messages {
 	font-size: 0.875em;
+}
+
+@media (max-width: 31.25em) {
+	.container {
+		margin: 0;
+	}
 }
