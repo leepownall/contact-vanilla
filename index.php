@@ -24,18 +24,39 @@
 
                     $validation = new Vanilla\Validation\Validation;
 
-                    try {
-                        $validation->data($name)->required()->alpha();
-                        $validation->data($email)->required()->email();
-                        $validation->data($message)->required()->min();
+                    $validation->field('name')->data($name)->required()->alpha();
+                    $validation->field('email')->data($email)->required()->email();
+                    $validation->field('message')->data($message)->required()->min();
 
-                        if($validation->passes()) {
-                            $database = new Vanilla\Database\Database;
-                            $database->insert($name, $email, $message);
-                            header('Location: messages.php');
-                        }
-                    } catch(\Exception $e) {}
-                }
+                    if($validation->passes()) {
+                        $database = new Vanilla\Database\Database;
+                        $database->insert($name, $email, $message);
+                        header('Location: messages.php');
+                    } else { ?>
+                        <form action="" method="POST" novalidate>
+                            <ul class="form cf">
+                                <li>
+                                    <label for="title">Name <span class="asterix">&#42;</span></label>
+                                    <input type="text" name="name" value="<?php echo $name; ?>">
+                                    <?php echo "<span class='error-inline'>" . $validation->first('name') . "</span>"; ?>
+                                </li>
+                                <li>
+                                    <label for="email">Email <span class="asterix">&#42;</span></label>
+                                    <input type="email" name="email" value="<?php echo $email; ?>">
+                                    <?php echo "<span class='error-inline'>" . $validation->first('email') . "</span>"; ?>
+                                </li>
+                                <li>
+                                    <label for="message">Your Message <span class="asterix">&#42;</span></label>
+                                    <textarea name="message" cols="30" rows="10"><?php echo $message; ?></textarea>
+                                    <?php echo "<span class='error-inline'>" . $validation->first('message') . "</span>"; ?>
+                                </li>
+                                <li>
+                                    <input type="submit" value="Send Message">
+                                </li>
+                            </ul>
+                        </form>
+                    <?php }
+                } else {
             ?>
             <form action="" method="POST" novalidate>
                 <ul class="form cf">
@@ -56,17 +77,7 @@
                     </li>
                 </ul>
             </form>
-            <?php 
-                if($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    if($validation->fails()) {
-                        echo "<ul class='errors'>";
-                        foreach($validation->errors() as $error) {
-                            echo "<li>{$error}</li>";
-                        }
-                        echo "</ul>";
-                    }
-                }
-            ?>
+            <?php } ?>
         </div>
 
 		<!-- Type Kit -->
