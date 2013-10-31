@@ -26,20 +26,20 @@
                         <div class="message">
                             <div class="message-row">
                                 <span class="message-label">Name:</span>
-                                <span><?php echo $message->name; ?></span>
+                                <span><?php echo htmlspecialchars($message->name); ?></span>
                             </div>
                             <div class="message-row">
                                 <span class="message-label">Email:</span>
-                                <span><?php echo $message->email; ?></span>
+                                <span><?php echo htmlspecialchars($message->email); ?></span>
                             </div>
                             <div class="message-row">
                                 <span class="message-label">Date Sent:</span>
-                                <span><?php echo $message->created_at; ?></span>
+                                <span><?php echo htmlspecialchars($message->created_at); ?></span>
                             </div>
                             <div class="message-row">
                                 <span class="message-label">Message:</span>
                                 <span class="actual-message">
-                                    <?php echo $message->message; ?>
+                                    <?php echo htmlspecialchars($message->message); ?>
                                 </span>
                             </div>
                         </div>
