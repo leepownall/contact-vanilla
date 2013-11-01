@@ -7,10 +7,6 @@ class Message extends Database {
         parent::__construct();
     }
 
-    /**
-     * Returns all messages.
-     * @return [type] [description]
-     */
     public function all()
     {
         try {
