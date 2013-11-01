@@ -35,7 +35,7 @@ class Validation
 
     public function alpha()
     {
-        if( ! preg_match('/^([-a-z_-\s])+$/i', $this->data)) {
+        if( ! preg_match('/^([a-z\s])+$/i', $this->data)) {
             $this->errors[$this->field][] = ucfirst($this->field) . " needs to be just alpha characters, no numeric.";
         }
 
