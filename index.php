@@ -27,9 +27,9 @@
 
                     $validation = new Vanilla\Validation\Validation;
 
-                    $validation->field('name')->data($name)->required()->alpha();
-                    $validation->field('email')->data($email)->required()->email();
-                    $validation->field('message')->data($message)->required()->min();
+                    $validation->input('name', $name)->required()->alpha();
+                    $validation->input('email', $email)->required()->email();
+                    $validation->input('message', $message)->required()->min();
 
                     if($validation->passes()) {
                         $db = new Vanilla\Database\Message;
