@@ -6,21 +6,16 @@ class Validation
     protected $rules = array();
     protected $data;
     protected $field;
+    protected $input;
 
-    public function data($data)
+    public function input($field, $data)
     {
+        $this->field = $field;
         $this->data = $data;
 
         return $this;
     }
-
-    public function field($field)
-    {
-        $this->field = $field;
-
-        return $this;
-    }
-
+    
     public function required()
     {
         if(empty($this->data) OR null) {
